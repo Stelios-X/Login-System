@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->pushButton, SIGNAL(clicked()),
-            this, SLOT(loginButton()));
+            this, SLOT(button()));
 }
 
 MainWindow::~MainWindow()
@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::loginButton()
+void MainWindow::button()
 {
     QString name[] = {"abc", "def", "ghi"};
     QString code[] = {"abc12", "def34", "ghi56"};
@@ -36,10 +36,14 @@ void MainWindow::loginButton()
             found = true;
             break;
         }
-       else if()
+       else if(!found)
         {
-
+            QMessageBox::information(this,"Error Box",
+            "invalid username or password"
+             );
         }
     }
 }
+
+
 
