@@ -301,6 +301,7 @@ DIST          = /usr/mkspecs/features/spec_pre.prf \
 		/usr/mkspecs/features/qt_config.prf \
 		/usr/mkspecs/linux-g++/qmake.conf \
 		/usr/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/usr/mkspecs/features/exclusive_builds.prf \
 		/usr/mkspecs/features/toolchain.prf \
 		/usr/mkspecs/features/default_pre.prf \
@@ -579,6 +580,7 @@ Makefile: ../../login.pro /usr/mkspecs/linux-g++/qmake.conf /usr/mkspecs/feature
 		/usr/mkspecs/features/qt_config.prf \
 		/usr/mkspecs/linux-g++/qmake.conf \
 		/usr/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/mkspecs/features/exclusive_builds.prf \
 		/usr/mkspecs/features/toolchain.prf \
 		/usr/mkspecs/features/default_pre.prf \
@@ -849,6 +851,7 @@ Makefile: ../../login.pro /usr/mkspecs/linux-g++/qmake.conf /usr/mkspecs/feature
 /usr/mkspecs/features/qt_config.prf:
 /usr/mkspecs/linux-g++/qmake.conf:
 /usr/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/mkspecs/features/exclusive_builds.prf:
 /usr/mkspecs/features/toolchain.prf:
 /usr/mkspecs/features/default_pre.prf:
