@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
@@ -22,6 +24,11 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,6 +39,41 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(270, 10, 301, 51));
+        label->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+" font-size:20px;\n"
+"}"));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(60, 90, 181, 18));
+        label_2->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"font-size:15px;\n"
+"}"));
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(60, 140, 181, 18));
+        label_3->setStyleSheet(QString::fromUtf8("QLabel\n"
+"{\n"
+"font-size:15px;\n"
+"}"));
+        lineEdit = new QLineEdit(centralwidget);
+        lineEdit->setObjectName("lineEdit");
+        lineEdit->setGeometry(QRect(220, 90, 281, 26));
+        lineEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"font-size;15px;\n"
+"}"));
+        lineEdit_2 = new QLineEdit(centralwidget);
+        lineEdit_2->setObjectName("lineEdit_2");
+        lineEdit_2->setGeometry(QRect(220, 140, 281, 26));
+        lineEdit_2->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"font-size;15px;\n"
+"}"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -49,6 +91,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Login Management System", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Enter Username", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Enter Password", nullptr));
     } // retranslateUi
 
 };
