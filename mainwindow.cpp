@@ -26,7 +26,7 @@ void MainWindow::on_pushButton_clicked()
     QString uCode = ui->lineEdit_2->text();
 
     bool found = false;
-    for(int i = 0; name->length(); )
+    for(int i = 0; i<name->length(); i++)
     {
         if(uName  == name[i] && uCode == code[i])
         {
@@ -36,12 +36,10 @@ void MainWindow::on_pushButton_clicked()
             found = true;
             break;
         }
-       else if(!found)
-        {
-            QMessageBox::information(this,"Error Box",
-            "invalid username or password"
-             );
-        }
+    }
+   if(!found)
+    {
+        QMessageBox::information(this,"Error Box", "Invalid username or password");
     }
 }
 

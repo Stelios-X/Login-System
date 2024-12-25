@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.7.3
+** Created by: Qt User Interface Compiler version 6.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -15,6 +15,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -29,6 +30,8 @@ public:
     QLabel *label_3;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -74,6 +77,20 @@ public:
 "{\n"
 "font-size;15px;\n"
 "}"));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(220, 200, 80, 26));
+        pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"font-size:15px;\n"
+"}"));
+        pushButton_2 = new QPushButton(centralwidget);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(430, 200, 80, 26));
+        pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"font-size:15px;\n"
+"}"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -94,6 +111,8 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Login Management System", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Enter Username", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Enter Password", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "OK", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
     } // retranslateUi
 
 };
