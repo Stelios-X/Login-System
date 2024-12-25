@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::button()
+void MainWindow::on_pushButton_clicked()
 {
     QString name[] = {"abc", "def", "ghi"};
     QString code[] = {"abc12", "def34", "ghi56"};
@@ -44,6 +44,8 @@ void MainWindow::button()
         }
     }
 }
+
+
 
 
 
