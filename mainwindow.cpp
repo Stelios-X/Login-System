@@ -21,6 +21,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::connectToDatabase()
+{
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("127.0.0.1");
+    db.setPort(3306);
+    db.setDatabase("");
+    db.setUserName("");
+    db.setPassword("");
+
+    if(!db.open())
+    {
+        qDebug() <<"Database connection failed: " << db.lastError().text;
+        return false;
+    }
+
+    qDebug() <<"Database connected successfully.";
+        return true;
+}
+
 void MainWindow::on_pushButton_clicked()
 {
     QString name[] = {"abc", "def", "ghi"};
