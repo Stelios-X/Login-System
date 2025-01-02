@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../login -I. -I/usr/include/QtWidgets -I/usr/include/QtGui -I/usr/include/QtCore -I. -I. -I/usr/mkspecs/linux-g++
+INCPATH       = -I../../../login -I. -I/usr/include/QtWidgets -I/usr/include/QtGui -I/usr/include/QtSql -I/usr/include/QtCore -I. -I. -I/usr/mkspecs/linux-g++
 QMAKE         = /usr/bin/qmake6
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = login1.0.0
 DISTDIR = /home/brandon/projects/login/build/Desktop-Debug/.tmp/login1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/usr/lib/x86_64-linux-gnu -Wl,-rpath-link,/usr/lib/x86_64-linux-gnu
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/libQt6Gui.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Core.so -lpthread -lGLX -lOpenGL   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/libQt6Gui.so /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /usr/lib/x86_64-linux-gnu/libQt6Sql.so /usr/lib/x86_64-linux-gnu/libQt6Core.so -lpthread -lGLX -lOpenGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -641,6 +641,7 @@ Makefile: ../../login.pro /usr/mkspecs/linux-g++/qmake.conf /usr/mkspecs/feature
 		../../login.pro \
 		/usr/lib/x86_64-linux-gnu/libQt6Widgets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt6Gui.prl \
+		/usr/lib/x86_64-linux-gnu/libQt6Sql.prl \
 		/usr/lib/x86_64-linux-gnu/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../login.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /usr/mkspecs/features/spec_pre.prf:
@@ -930,6 +931,7 @@ Makefile: ../../login.pro /usr/mkspecs/linux-g++/qmake.conf /usr/mkspecs/feature
 ../../login.pro:
 /usr/lib/x86_64-linux-gnu/libQt6Widgets.prl:
 /usr/lib/x86_64-linux-gnu/libQt6Gui.prl:
+/usr/lib/x86_64-linux-gnu/libQt6Sql.prl:
 /usr/lib/x86_64-linux-gnu/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../login.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -986,7 +988,7 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../../mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/libexec/moc
-	/usr/lib/libexec/moc $(DEFINES) --include /home/brandon/projects/login/build/Desktop-Debug/moc_predefs.h -I/usr/mkspecs/linux-g++ -I/home/brandon/projects/login -I/usr/include/QtWidgets -I/usr/include/QtGui -I/usr/include/QtCore -I. -I/usr/include/c++/13.2.0 -I/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu -I/usr/include/c++/13.2.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/13.2.0/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/13.2.0/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/libexec/moc $(DEFINES) --include /home/brandon/projects/login/build/Desktop-Debug/moc_predefs.h -I/usr/mkspecs/linux-g++ -I/home/brandon/projects/login -I/usr/include/QtWidgets -I/usr/include/QtGui -I/usr/include/QtSql -I/usr/include/QtCore -I. -I/usr/include/c++/13.2.0 -I/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu -I/usr/include/c++/13.2.0/backward -I/usr/lib/gcc/x86_64-unknown-linux-gnu/13.2.0/include -I/usr/lib/gcc/x86_64-unknown-linux-gnu/13.2.0/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
