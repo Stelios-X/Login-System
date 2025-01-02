@@ -26,9 +26,9 @@ bool MainWindow::connectToDatabase()
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("127.0.0.1");
     db.setPort(3306);
-    db.setDatabase("");
-    db.setUserName("");
-    db.setPassword("");
+    db.setDatabase("library");
+    db.setUserName("root");
+    db.setPassword("your_new_password");
 
     if(!db.open())
     {
@@ -40,6 +40,28 @@ bool MainWindow::connectToDatabase()
         return true;
 }
 
+void MainWindow::on_pushButton_clicked()
+{
+    QString uName = ui->lineEdit->text();
+    QString uCode = ui->lineEdit_2->text();
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM users WHERE username = :username AND usercode = :usercode");
+    query.bindValue(":username", uName);
+    query.bindValue(":usercode", uCode);
+
+    if(query.exec() && query.next())
+    {
+        QString name = query.value("username").toString();
+        QMessageBox::information(this,"Welcome Message", "User: "+name+"\nWelcome to the Login Management System");
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error Box", "Invalid username or password");
+    }
+}
+
+/*
 void MainWindow::on_pushButton_clicked()
 {
     QString name[] = {"abc", "def", "ghi"};
@@ -66,7 +88,7 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
-
+*/
 
 
 
