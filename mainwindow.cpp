@@ -38,10 +38,8 @@ MainWindow::~MainWindow()
 
 bool MainWindow::connectToDatabase()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName("127.0.0.1");
-    db.setPort(3306);
-    db.setDatabaseName("library");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    db.setDatabaseName("Driver={MySQL ODBC 8.0 Unicode Driver};Server=127.0.0.1;Database=library;");
     db.setUserName("root");
     db.setPassword("your_password");
 
@@ -54,7 +52,6 @@ bool MainWindow::connectToDatabase()
     qDebug() << "Database connected successfully.";
     return true;
 }
-
 
 void MainWindow::on_pushButton_clicked()
 {
