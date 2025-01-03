@@ -26,13 +26,13 @@ bool MainWindow::connectToDatabase()
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("127.0.0.1");
     db.setPort(3306);
-    db.setDatabase("library");
+    db.setDatabaseName("library");
     db.setUserName("root");
     db.setPassword("your_new_password");
 
     if(!db.open())
     {
-        qDebug() <<"Database connection failed: " << db.lastError().text;
+        qDebug() <<"Database connection failed: " << db.lastError().text();
         return false;
     }
 
