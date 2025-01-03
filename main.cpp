@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include <QLibraryInfo>
+#include <QStandardPaths>
 #include <QDebug>
 
 int main(int argc, char *argv[])
 {
-    qDebug() << "Plugin Path: " << QLibraryInfo::path(QLibraryInfo::PluginsPath);
-    QCoreApplication::addLibraryPath("/usr/lib/qt/plugins");
+    // Use QStandardPaths to get the plugin path
+    QString pluginPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/Qt/plugins";
+    qDebug() << "Plugin Path: " << pluginPath;
+    QCoreApplication::addLibraryPath(pluginPath);
 
     QApplication a(argc, argv);
     MainWindow w;
