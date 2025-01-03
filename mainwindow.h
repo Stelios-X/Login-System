@@ -27,6 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     // Add the connectToDatabase function declaration here
+    //this is the main DB connection method
     bool connectToDatabase();
 };
 #endif // MAINWINDOW_H
