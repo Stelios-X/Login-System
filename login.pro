@@ -26,4 +26,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 QT += sql
 
 # Link against the ODBC library
-LIBS += -lodbc
+LIBS += -L/usr/lib/ -lodbc
