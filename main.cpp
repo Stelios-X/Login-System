@@ -6,6 +6,7 @@
 int main(int argc, char *argv[])
 {
     // Use QStandardPaths to get the plugin path
+    //Locate the main paths using this.
     QString pluginPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/Qt/plugins";
     qDebug() << "Plugin Path: " << pluginPath;
     QCoreApplication::addLibraryPath(pluginPath);
