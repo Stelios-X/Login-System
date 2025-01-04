@@ -18,12 +18,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    checkAvailableDrivers();  // Add this line to check available drivers
+    checkAvailableDrivers();  // Add this line to check available drivers whether or not they are active
 
     // Connect the push button to the on_pushButton_clicked() slot
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
 
-    // Initialize the database connection
+    // Initialize the database connection testing its viability
     if (!connectToDatabase()) {
         QMessageBox::critical(this, "Database Connection Error", "Failed to connect to the database. Check your connection settings.");
     } else {
