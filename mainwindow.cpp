@@ -69,6 +69,10 @@ void MainWindow::on_pushButton_clicked()
     query.bindValue(":username", uName);
     query.bindValue(":usercode", uCode);
 
+    //query.bindValue(":username", uName);
+    //query.bindValue(":usercode", uCode);
+
+
     // Execute the query and check the results of the execution
     if (query.exec() && query.next()) {
         QString name = query.value("username").toString();
