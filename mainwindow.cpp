@@ -43,7 +43,7 @@ bool MainWindow::connectToDatabase()
     db.setHostName("127.0.0.1");  // MariaDB server IP
     db.setDatabaseName("library");  // Database name
     db.setUserName("root");  // Username
-    db.setPassword("your_password_here");  // Password
+    db.setPassword("your_new_password");  // Password
 
     if (!db.open())
     {
