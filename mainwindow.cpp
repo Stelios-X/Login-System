@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    checkAvailableDrivers();  // Add this line to check available drivers whether or not they are active
+    checkAvailableDrivers();  // Add this line to check available drivers
 
     // Connect the push button to the on_pushButton_clicked() slot
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
@@ -38,10 +38,12 @@ MainWindow::~MainWindow()
 
 bool MainWindow::connectToDatabase()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("Driver={MySQL ODBC 9.1 Unicode Driver};Server=127.0.0.1;Database=library;");
-    db.setUserName("root");
-    db.setPassword("your_new_password");
+    // Use QMYSQL driver for MariaDB connection
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+    db.setHostName("127.0.0.1");  // MariaDB server IP
+    db.setDatabaseName("library");  // Database name
+    db.setUserName("root");  // Username
+    db.setPassword("your_password_here");  // Password
 
     if (!db.open())
     {
@@ -68,10 +70,6 @@ void MainWindow::on_pushButton_clicked()
     query.prepare("SELECT * FROM users WHERE username = :username AND usercode = :usercode");
     query.bindValue(":username", uName);
     query.bindValue(":usercode", uCode);
-
-    //query.bindValue(":username", uName);
-    //query.bindValue(":usercode", uCode);
-
 
     // Execute the query and check the results of the execution
     if (query.exec() && query.next()) {
