@@ -41,7 +41,7 @@ bool MainWindow::connectToDatabase()
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("Driver={MySQL ODBC 8.0 Unicode Driver};Server=127.0.0.1;Database=library;");
     db.setUserName("root");
-    db.setPassword("your_password");
+    db.setPassword("your_new_password");
 
     if (!db.open())
     {

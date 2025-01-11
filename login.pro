@@ -1,4 +1,5 @@
-QT       += core gui
+QT += core gui sql
+LIBS += -lodbc
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
