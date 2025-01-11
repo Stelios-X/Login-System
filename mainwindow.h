@@ -18,16 +18,10 @@ public:
     ~MainWindow();
 
 private slots:
-    //void button();
-
     void on_pushButton_clicked();
-
-    //void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    // Add the connectToDatabase function declaration here
-    //this is the main DB connection method
     bool connectToDatabase();
 };
 #endif // MAINWINDOW_H
