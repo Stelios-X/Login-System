@@ -1011,8 +1011,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../../main.cpp ../../mainwindow.h \
-		../../ui_mainwindow.h
+main.o: ../../main.cpp ../../mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
