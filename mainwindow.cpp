@@ -17,12 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    checkAvailableDrivers(); // Call the function here
+    checkAvailableDrivers(); // Call the function here main function.
 
     // Connect the push button to the on_pushButton_clicked() slot
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
 
-    // Initialize the database connection testing its viability
+    // Initialize the database connection testing its viability for connection.
     if (!connectToDatabase()) {
         QMessageBox::critical(this, "Database Connection Error", "Failed to connect to the database. Check your connection settings.");
     } else {
@@ -37,7 +37,7 @@ MainWindow::~MainWindow()
 
 bool MainWindow::connectToDatabase()
 {
-    // Use QMYSQL driver for MariaDB connection
+    // Use QMYSQL driver for MariaDB connection establishment
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("127.0.0.1"); // MariaDB server IP
     db.setDatabaseName("library"); // Database name
